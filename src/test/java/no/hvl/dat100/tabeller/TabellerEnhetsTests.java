@@ -25,7 +25,7 @@ class TabellerEnhetsTests {
 
 	}
 
-	@Test //b
+	@Test 
 	void testSkrivUt() {
 
 		Tabeller.skrivUt(tabell1);
