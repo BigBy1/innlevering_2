@@ -62,12 +62,12 @@ class TabellerEnhetsTests {
 	@Test
 	void testposisjonTall() {
 
-		 assertEquals(0, Tabeller.posisjonTall(tabell1, 1));
-		//assertEquals(1, Tabeller.posisjonTall(tabell1, 4));
-		//assertEquals(2, Tabeller.posisjonTall(tabell1, 6));
+		assertEquals(0, Tabeller.posisjonTall(tabell1, 1));
+		assertEquals(1, Tabeller.posisjonTall(tabell1, 4));
+		assertEquals(2, Tabeller.posisjonTall(tabell1, 6));
 
-		//assertEquals(-1, Tabeller.posisjonTall(tabell1, 7));
-		//assertEquals(-1, Tabeller.posisjonTall(tabell3, 7));
+		assertEquals(-1, Tabeller.posisjonTall(tabell1, 7));
+		assertEquals(-1, Tabeller.posisjonTall(tabell3, 7));
 
 	}
 

@@ -18,21 +18,28 @@ public class Tabeller {
 	// b)
 	public static String tilStreng(int[] tabell) {
 
-		String s = "";
+		String s = "[";
+		
 
 		for (int i = 0; i < tabell.length; i++) {
 
 			int tall = tabell[i];
 
 			if (i == 0) {
-				s = "[" + s + tall + ", ";
+				s = s + tall+",";
+				
 			} else if (i < tabell.length - 1) {
-				s = s + tall + ", ";
+				s = s + tall+",";
 			} else {
 				s = s + tall;
 			}
 		}
-		System.out.println("Oppgave b)" + "\n" + "Tallene er: " + s + "]");
+		s = s+"]";
+		if (tabell.length==1) {
+			s ="["+tabell[0]+"]";
+		}
+		
+		System.out.println("Oppgave b)" + "\n" + "Tallene er: " + s);
 		return s;
 	}
 
@@ -74,12 +81,12 @@ public class Tabeller {
 	public static int posisjonTall(int[] tabell, int tall) {
 
 		int posisjon = -1;
+		int g = 0;
 
 		for (int i = 0; i < tabell.length; i++) {
-			if (tabell[i] == tall) {
-				// sånn at plassen 0 blir til 1 for allmenheten
-				posisjon = i + 1;
-				break;
+			if (tabell[i] == tall&& g==0) {
+				posisjon = i;
+				g=1;
 			}
 
 		}
@@ -118,21 +125,34 @@ public class Tabeller {
 
 		boolean erStigende = false;
 		int tall = 0;
+		int g = 0;
 
 		for (int i = 0; i < tabell.length; i++) {
 
-			if (i > 0) {
-				tall = tabell[i - 1];
+			if (tabell[i] > 0 && g==0) {
+				if (i==0) {
+				 tall = tabell[i];
+				}
+				else {
+					tall = tabell[i-1];
+				}
+				
+				g=1;
 			}
-			if (i > 0 && tabell[i] >= tall) {
+			
+			if (tabell[i] > 0 && tabell[i] >= tall) {
 				erStigende = true;
+				g=0;
 			} else {
 				erStigende = false;
 			}
 
-			System.out.print("\n Oppgave g) \n er tabellen sortert stigende? \n" + erStigende);
-
 		}
+		if (tabell.length == 0) {
+			erStigende = true;
+		}
+
+		System.out.print("\n Oppgave g) \n er tabellen sortert stigende? \n" + erStigende);
 		return erStigende;
 	}
 
@@ -141,7 +161,7 @@ public class Tabeller {
 
 		int lengde1 = tabell1.length;
 		int lengde2 = tabell2.length;
-		
+
 		System.out.print("Oppgave h) \n");
 
 		int tabell1x2[] = new int[lengde1 + lengde2];
@@ -153,9 +173,9 @@ public class Tabeller {
 				tabell1x2[i] = tabell2[i - lengde1];
 			}
 		}
-			
+
 		System.out.print("Når du legger sammen tabellene får du tabellen: \n");
-		for (int i=0; i<tabell1x2.length;i++) {
+		for (int i = 0; i < tabell1x2.length; i++) {
 			System.out.print(tabell1x2[i]);
 		}
 		System.out.print("\n");
