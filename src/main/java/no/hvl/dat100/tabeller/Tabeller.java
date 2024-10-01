@@ -1,3 +1,6 @@
+
+//jeg har satt inn print på hver oppgave for å se selv hva som skrives ut
+
 package no.hvl.dat100.tabeller;
 
 public class Tabeller {

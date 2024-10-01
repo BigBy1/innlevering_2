@@ -1,3 +1,7 @@
+
+//jeg har satt inn print på hver oppgave for å se selv hva som skrives ut
+
+
 package no.hvl.dat100.matriser;
 
 public class Matriser {
